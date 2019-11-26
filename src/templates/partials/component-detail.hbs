@@ -2,7 +2,11 @@
     <h3>{{t "file" }}</h3>
 </p>
 <p class="comment">
+    {{#if repoSrcUrl}}
+    <a href="{{repoSrcUrl}}{{component.file}}" rel="noopener">
+    {{/if}}
     <code>{{component.file}}</code>
+    {{#if repoSrcUrl}}</a>{{/if}}
 </p>
 
 {{#if component.description}}

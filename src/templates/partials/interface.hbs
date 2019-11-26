@@ -18,7 +18,11 @@
             <h3>{{t "file" }}</h3>
         </p>
         <p class="comment">
+            {{#if repoSrcUrl}}
+            <a href="{{repoSrcUrl}}{{interface.file}}" rel="noopener">
+            {{/if}}
             <code>{{interface.file}}</code>
+            {{#if repoSrcUrl}}</a>{{/if}}
         </p>
 
         {{#if interface.description}}

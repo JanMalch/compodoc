@@ -37,7 +37,11 @@
             <h3>{{t "file" }}</h3>
         </p>
         <p class="comment">
+            {{#if repoSrcUrl}}
+            <a href="{{repoSrcUrl}}{{module.file}}" rel="noopener">
+            {{/if}}
             <code>{{module.file}}</code>
+            {{#if repoSrcUrl}}</a>{{/if}}
         </p>
 
         {{#if module.ngid}}

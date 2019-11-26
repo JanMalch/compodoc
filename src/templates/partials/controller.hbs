@@ -18,7 +18,11 @@
             <h3>{{t "file" }}</h3>
         </p>
         <p class="comment">
+            {{#if repoSrcUrl}}
+            <a href="{{repoSrcUrl}}{{controller.file}}" rel="noopener">
+            {{/if}}
             <code>{{controller.file}}</code>
+            {{#if repoSrcUrl}}</a>{{/if}}
         </p>
 
         {{#if controller.prefix}}

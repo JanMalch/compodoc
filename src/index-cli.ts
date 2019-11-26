@@ -179,6 +179,11 @@ Note: Certain tabs will only be shown if applicable to a given dependency`,
             .option('--gaID [id]', 'Google Analytics tracking ID')
             .option('--gaSite [site]', 'Google Analytics site name', COMPODOC_DEFAULTS.gaSite)
             .option(
+                '--repoSrcUrl [uri]',
+                'Base source path to your repository',
+                COMPODOC_DEFAULTS.repoSrcUrl
+            )
+            .option(
                 '--maxSearchResults [maxSearchResults]',
                 'Max search results on the results page. To show all results, set to 0',
                 COMPODOC_DEFAULTS.maxSearchResults
@@ -541,6 +546,32 @@ Note: Certain tabs will only be shown if applicable to a given dependency`,
         }
         if (program.gaSite && program.gaSite !== COMPODOC_DEFAULTS.gaSite) {
             Configuration.mainData.gaSite = program.gaSite;
+        }
+
+        if (configFile.repoSrcUrl) {
+            Configuration.mainData.repoSrcUrl = configFile.repoSrcUrl;
+        }
+        if (program.repoSrcUrl) {
+            Configuration.mainData.repoSrcUrl = program.repoSrcUrl;
+        }
+        if (!Configuration.mainData.repoSrcUrl.endsWith('/')) {
+            Configuration.mainData.repoSrcUrl += '/';
+        }
+        if (Configuration.mainData.repoSrcUrl.includes('{{commit}}')) {
+            try {
+                const currentHead = require('child_process').execSync('git rev-parse HEAD', {
+                    encoding: 'utf-8'
+                });
+                Configuration.mainData.repoSrcUrl = Configuration.mainData.repoSrcUrl.replace(
+                    '{{commit}}',
+                    currentHead
+                );
+            } catch (e) {
+                console.error(
+                    'Unable to read current git HEAD, but {{commit}} placeholder was used.'
+                );
+                throw e;
+            }
         }
 
         if (!this.isWatching) {

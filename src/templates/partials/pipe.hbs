@@ -19,7 +19,11 @@
             <h3>{{t "file" }}</h3>
         </p>
         <p class="comment">
+            {{#if repoSrcUrl}}
+            <a href="{{repoSrcUrl}}{{pipe.file}}" rel="noopener">
+            {{/if}}
             <code>{{pipe.file}}</code>
+            {{#if repoSrcUrl}}</a>{{/if}}
         </p>
 
         {{#if pipe.description}}

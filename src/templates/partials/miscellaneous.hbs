@@ -30,7 +30,13 @@
     <h2 id="inputs"><b>{{t "types" }}</b></h2>
     {{#each miscellaneous.types}}
         {{#if this.file}}
-            <i><code>{{this.file}}</code></i>
+            <i>
+                {{#if repoSrcUrl}}
+                <a href="{{repoSrcUrl}}{{this.file}}" rel="noopener">
+                {{/if}}
+                <code>{{this.file}}</code>
+                {{#if repoSrcUrl}}</a>{{/if}}
+            </i>
         {{/if}}
         <h3>{{this.name}}</h3>
         <br/>

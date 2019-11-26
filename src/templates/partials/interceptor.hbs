@@ -18,7 +18,11 @@
             <h3>{{t "file" }}</h3>
         </p>
         <p class="comment">
+            {{#if repoSrcUrl}}
+            <a href="{{repoSrcUrl}}{{injectable.file}}" rel="noopener">
+            {{/if}}
             <code>{{injectable.file}}</code>
+            {{#if repoSrcUrl}}</a>{{/if}}
         </p>
 
         {{#if injectable.description}}

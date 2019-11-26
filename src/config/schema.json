@@ -395,6 +395,17 @@
             "examples": [
                 ""
             ]
+        },
+        "repoSrcUrl": {
+            "$id": "/properties/repository",
+            "type": "string",
+            "format": "uri",
+            "title": "Base source path to your repository. Add a {{commit}} placeholder to insert current commit hash.",
+            "default": "",
+            "examples": [
+                "https://github.com/compodoc/compodoc-demo-todomvc-angular/blob/master/",
+                "https://github.com/compodoc/compodoc-demo-todomvc-angular/blob/{{commit}}/"
+            ]
         }
     }
 }
