@@ -178,11 +178,7 @@ Note: Certain tabs will only be shown if applicable to a given dependency`,
             .option('--customLogo [path]', 'Use a custom logo')
             .option('--gaID [id]', 'Google Analytics tracking ID')
             .option('--gaSite [site]', 'Google Analytics site name', COMPODOC_DEFAULTS.gaSite)
-            .option(
-                '--repoSrcUrl [uri]',
-                'Base source path to your repository',
-                COMPODOC_DEFAULTS.repoSrcUrl
-            )
+            .option('--repoSrcUrl [uri]', 'Base source path to your repository')
             .option(
                 '--maxSearchResults [maxSearchResults]',
                 'Max search results on the results page. To show all results, set to 0',
